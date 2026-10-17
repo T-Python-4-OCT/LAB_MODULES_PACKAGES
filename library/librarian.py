@@ -49,10 +49,11 @@ def display_books(library):
         print("The library is empty!")
         return
 
-
     for isbn, book in library.items():
-        print("-"*50)
-        print(f"Title: {book['title']}")
-        print(f"Author: {book['author']}")
-        print(f"ISBN: {book['ISBN']}")
-        print(f"Available: {book['Available']}")
+        if book["Available"]:
+            status = "Available"
+        else:
+            status = "Checked Out"
+
+        print(f"{book['title']} by {book['author']} "
+              f"(ISBN: {isbn}) - {status}")
